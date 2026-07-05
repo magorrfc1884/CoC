@@ -3,44 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Booklet</title>
-    
-    <!-- Standard, high-compatibility Flipbook styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.css">
-    
+    <title>3D Flipbook</title>
     <style>
-        body {
-            background-color: #222;
+        body, html {
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            height: 100%;
+            background-color: #222;
             overflow: hidden;
         }
-        #viewer-container {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        /* Native PDF frame that displays perfectly without security blockages */
-        .pdf-frame {
-            width: 90vw;
-            height: 90vh;
-            border: none;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        #container {
+            width: 100vw;
+            height: 100vh;
         }
     </style>
 </head>
 <body>
 
-    <div id="viewer-container">
-        <!-- REPLACE "your-file.pdf" with the exact name of your uploaded PDF -->
-        <iframe src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https://magorrfc1884.github.io/coc/Club Code of Conduct _ Fair Play Policy.pdf" class="pdf-frame"></iframe>
-    </div>
+    <div id="container"></div>
+
+    <!-- Load jQuery and the HTML5 3D FlipBook Engine -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/flip-book/js/flipbook.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // CRITICAL: Change "Club_Code_of_Conduct_Fair_Play_Policy.pdf" to your exact PDF filename
+            $("#container").flipBook({
+                pdf: "your-file.pdf",
+                template: {
+                    view: "book",
+                    theme: "dark"
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
