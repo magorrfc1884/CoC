@@ -26,11 +26,11 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/flip-book/js/flipbook.min.js"></script>
 
-    <script>
+   <script>
         $(document).ready(function () {
-            // CRITICAL: Change "Club_Code_of_Conduct_Fair_Play_Policy.pdf" to your exact PDF filename
             $("#container").flipBook({
-                pdf: "Club_Code_of_Conduct_Fair_Play_Policy.pdf",
+                // Using the full URL bypasses the relative path lock
+                pdf: "https://magorrfc1884.github.io/coc/Club_Code_of_Conduct_Fair_Play_Policy.pdf",
                 template: {
                     view: "book",
                     theme: "dark"
